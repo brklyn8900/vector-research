@@ -1,79 +1,44 @@
-#include <iostream>
 
-
-template <typename T>
-class static_array
+template <class T>
+class vector
 {
-  private:
-    int cap;
-    int elements;
-    T *arr;
-  
-  public:
-    static_array(int size = 10);
-    ~static_array();
-    int size() const;
-    void add(const T &obj);
-    T &get(int index);
+private:
+  int vector_size;
+  int vector_capacity;
+  T *arr;
+
+public:
+  vector(int size = 10);
+  void add(const T &obj);
 };
-template <typename T>
-static_array<T>::static_array(int size)
-{
-  this->cap = size;
-  this->elements = 0;
-  this->arr = new T[this->cap];
-}
 
 template <typename T>
-static_array<T>::~static_array()
+vector<T>::vector(int size)
 {
-  delete[] this->arr;
+  this->vector_size = size;
+  this->vector_capacity = 0;
+  this->arr = new T[this->vector_capacity];
 }
+// create an array
+// how big the vector is and how big the underlying array is
+// add the ability to add elements to the array
+// have the ability to grow the array
+// account for getting to the end of the array
+// double the size of the array when getting to the end (create a bucket size)
 
-template <typename T>
-int static_array<T>::size()const
-{
-  return this->elements;
-}
-
-template <typename T>
-void static_array<T>::add(const T &obj)
-{
-  if (this->elements <= this->cap)
-    this->arr[this->elements++] = obj;
-  else
-    std::cout << "array is full" << std::endl;
-}
-
-template <typename T>
-T& static_array<T>::get(int index)
-{
-  if (index < 0 || index >= this->elements)
-    throw "Bad index";
-
-  return this->arr[index];
-}
-
-// need random access, overload index operator
+// size
+// maxsize
+// resize
+// capacity
+// index operator
+// push_back
+// clear
 
 int main()
 {
-  static_array<int> ia;
-  static_array<std::string> sa;
+  vector<int> templated_array;
 
-  for (size_t i = 0; i < 10; i++)
-  {
-    ia.add(100);
-    sa.add("Koinos to the moon!");
-  }
-
-  for (size_t i = 0; i < 10; i++)
-  {
-    std::cout << i << " ";
-    std::cout << ia.get(i) << " ";
-    std::cout << sa.get(i) << " ";
-    std::cout << std::endl;
-  }
+  templated_array.add(4);
 
   return 0;
- }
+}
