@@ -19,13 +19,13 @@ public:
         allocate(_capacity * 2);
       }
     vector_array[_size++] = x;
-    
   }
+  
   // create vector
   Vector() 
   {
     vector_array = new int [5];
-    _capacity = 5;
+    _capacity = 8;
     _size = 0;
     std::cout << vector_array << std::endl; 
   };
@@ -51,10 +51,15 @@ public:
   }
 
   // resize vector 
-  void resize(int newsize)
+  void resize(int resize_value)
   {
-    _size = newsize;
-    _capacity = newsize;
+    _size = resize_value;
+    _capacity = resize_value;
+  }
+
+  // maxsize
+  void max_size() {
+    
   }
 
   private:
@@ -78,6 +83,8 @@ public:
 int main()
 {
   Vector vector;
+
+  std::cout << "capacity " << vector.capacity() << std::endl;
   // add element
   for (int i = 0; i < 10; i++) vector.push_back(i + 20);
 
@@ -86,18 +93,18 @@ int main()
   std::cout << "array:" << std::endl;
 
   // console array elements
-  for (int i = 0; i < vector.capacity(); i++)
-  {
-    std::cout << "|  " << vector.vector_array[i] << "  ";
-  }
-  std::cout << "|" << std::endl;
-  std::cout << std::endl;
+    for (int i = 0; i < vector.capacity(); i++)
+    {
+      std::cout << "|  " << vector.vector_array[i] << "  ";
+    }
+    std::cout << "|" << std::endl;
+    std::cout << std::endl;
 
-  vector.resize(3);
+  // 
+  // vector.resize(3);
 
   // console output after function
     std::cout << "array after function call:" << std::endl;
-    // console array elements
     for (int i = 0; i < vector.capacity(); i++)
     {
       std::cout << "|  " << vector.vector_array[i] << "  ";
@@ -105,12 +112,15 @@ int main()
     std::cout << std::endl;
 
   // final vector and array size
-  std::cout << "array length: " << vector.capacity() << std::endl;
+  std::cout << "capacity: " << vector.capacity() << std::endl;
   std::cout << "vector size: " << vector.size() << std::endl;
   // std::cout << "element size: " << element_size << std::endl;
 
   return 0;
 }
+
+
+
 
 // create an array
 // how big the vector is and how big the underlying array is
@@ -121,10 +131,13 @@ int main()
 
 // TODO:
 
-// size --done
-    // maxsize 
-// resize --done
-// capacity --done
-    // index operator -- overload operator 
-// push_back --done
-// clear --done
+// maxsize 
+// index operator -- overload operator 
+
+// DONE:
+
+// size 
+// resize 
+// capacity 
+// push_back 
+// clear 
