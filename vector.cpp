@@ -104,7 +104,7 @@ int main()
 
   for (int i = 0; i < vector.capacity(); i++)
   {
-    std::cout << "|  " << vector_array[i] << "  ";
+    std::cout << "|  " << vector[i] << "  ";
   }
   std::cout << "|" << std::endl;
   std::cout << std::endl;
@@ -121,7 +121,7 @@ int main()
   std::cout << "array after function call:" << std::endl;
   for (int i = 0; i < vector.capacity(); i++)
   {
-    std::cout << "|  " << vector_array[i] << "  ";
+    std::cout << "|  " << vector[i] << "  ";
   }
   std::cout << "|" << std::endl;
   std::cout << std::endl;
