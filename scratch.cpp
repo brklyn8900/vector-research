@@ -25,14 +25,14 @@ private:
 
 public:
   Vector();
-  void push_back(const T x);
+  T &operator[](T index);
   size_t capacity();
   size_t size();
   void clear();
   void resize(T resize_value);
   size_t max_size();
 
-  T &operator[](T index)
+  int &operator[](int index)
   {
     return vector_array[index];
   }
@@ -92,7 +92,7 @@ size_t Vector<T>::max_size()
 
 int main()
 {
-  Vector<int> vector;
+  Vector<double> vector;
 
   // add element
   for (int i = 0; i < 9; i++)
@@ -102,9 +102,9 @@ int main()
   std::cout << std::endl;
   std::cout << "array:" << std::endl;
 
-  for (int i = 0; i < vector.capacity(); i++)
+  for (int i = 0; i < capacity(); i++)
   {
-    std::cout << "|  " << vector[i] << "  ";
+    std::cout << "|  " << vector_array[i] << "  ";
   }
   std::cout << "|" << std::endl;
   std::cout << std::endl;
@@ -121,7 +121,7 @@ int main()
   std::cout << "array after function call:" << std::endl;
   for (int i = 0; i < vector.capacity(); i++)
   {
-    std::cout << "|  " << vector[i] << "  ";
+    std::cout << "|  " << vector.vector_array[i] << "  ";
   }
   std::cout << "|" << std::endl;
   std::cout << std::endl;
